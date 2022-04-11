@@ -3,26 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "node-sass": "npm:dart-sass"
+    "babel-plugin-import": "^1.12.2",
+    "customize-cra": "^0.8.0",
+    "node-sass": "npm:dart-sass",
+    "react-app-rewired": "^2.1.4"
   },
   "dependencies": {
+    "@ant-design/compatible": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
+    "browserslist": "^4.20.2",
+    "caniuse-lite": "^1.0.30001327",
+    "nprogress": "^0.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^5.1.1",
+    "react-redux": "^7.1.1",
     "react-scripts": "3.3.0",
     "redux": "^4.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"

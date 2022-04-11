@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import loadable from './utils/loadable';
+import {HashRouter, Route, Switch, Redirect} from 'react-router-dom'
+import './style/base.scss'
+import './style/App.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const DefaultLayout = loadable(() => import(/* webpackChunkName: 'default' */ './containers'))
+const View404 = loadable(() => import(/* webpackChunkName: '404' */ './views/base/404'))
+
+const App = () => (
+    <HashRouter>
+        <Switch>
+            <Route path="/" exact render={() => <Redirect to='/index' />}/>
+            <Route path="/404" component={View404} />
+            {/* <Route path="/login" component="{}" /> */}
+            <Route component={DefaultLayout} />
+        </Switch>
+    </HashRouter>
+)
 
 export default App;
