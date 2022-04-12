@@ -12,7 +12,7 @@ import menu from './menu'
 import routes from "@/routes"
 
 
-const { Content } = Layout
+const { Content } = Layout;
 
 class DefaultLayout extends Component {
     state = {
