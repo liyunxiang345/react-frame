@@ -11,8 +11,9 @@ import AppFooter from "./AppFooter.jsx"
 import menu from './menu'
 import routes from "@/routes"
 
-
 const { Content } = Layout;
+
+
 
 class DefaultLayout extends Component {
     state = {
@@ -32,8 +33,8 @@ class DefaultLayout extends Component {
     }
 
     getMenu = menu => {
-        let newMenu,
-            auth = JSON.parse(localStorage.getItem('user')).auth
+        let newMenu;
+        let auth = JSON.parse(localStorage.getItem('user'))
         if (!auth) {
             return menu
         } else {
@@ -42,9 +43,28 @@ class DefaultLayout extends Component {
         }
     }
 
+    isLogin = () => {
+        // if (!localStorage.getItem('user')) {
+        //     this.props.history.push('/login')
+        // } else {
+        //     this.setState({
+        //         menu: this.getMenu(menu)
+        //     })
+        // }
+        this.setState({
+            menu: this.getMenu(menu)
+        })
+    }
+
+    componentDidMount() {
+        console.log(process.env)
+        this.isLogin()
+    }
+
     render() {
         let { menuClick, menuToggle } = this.props;
         let { auth } = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : ''
+        console.log(this.state.menu);
         return (
             <Layout>
                 <BackTop />
